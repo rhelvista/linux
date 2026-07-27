@@ -869,14 +869,14 @@ static int aic_init_cpu(unsigned int cpu)
 	sysreg_clear_set(cntv_ctl_el0, 0, ARCH_TIMER_CTRL_IT_MASK);
 
 	/* EL2-only (VHE mode) IRQ sources */
-	if (is_kernel_in_hyp_mode()) {
-		/* Guest timers */
-		sysreg_clear_set_s(SYS_IMP_APL_VM_TMR_FIQ_ENA_EL2,
-				   VM_TMR_FIQ_ENABLE_V | VM_TMR_FIQ_ENABLE_P, 0);
+	// if (is_kernel_in_hyp_mode()) {
+	// 	/* Guest timers */
+	// 	sysreg_clear_set_s(SYS_IMP_APL_VM_TMR_FIQ_ENA_EL2,
+	// 			   VM_TMR_FIQ_ENABLE_V | VM_TMR_FIQ_ENABLE_P, 0);
 
-		/* vGIC maintenance IRQ */
-		sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
-	}
+	// 	/* vGIC maintenance IRQ */
+	// 	sysreg_clear_set_s(SYS_ICH_HCR_EL2, ICH_HCR_EL2_En, 0);
+	// }
 
 	/* PMC FIQ */
 	sysreg_clear_set_s(SYS_IMP_APL_PMCR0_EL1, PMCR0_IMODE | PMCR0_IACT,
