@@ -33,7 +33,6 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "gpio";
-		// apple,always-on;
 	};
 
 	ps_pms: power-controller@130{
@@ -200,7 +199,7 @@
 	ps_disp_sys: power-controller@290 {
 		compatible = "apple,t8142-pmgr-pwrstate", "apple,t8103-pmgr-pwrstate";
 		reg = <0x290 4>;
-		#power-domain-cells = <0>;//there
+		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "disp_sys";
 		apple,always-on;
@@ -237,7 +236,6 @@
 		#reset-cells = <0>;
 		label = "sio";
 		apple,always-on;
-
 	};
 
 	ps_dispext1_sys: power-controller@2b8 {
@@ -304,7 +302,7 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "ans";
-		apple,always-on; /* without it it reboots in mintues */
+		apple,always-on; /* Core Device */
 	};
 
 	ps_dispext0_sys: power-controller@308 {
@@ -329,7 +327,7 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "dptx_phy";
-		apple,always-on;//there
+		apple,always-on;
 		power-domains = <&ps_disp_sys>;
 	};
 
@@ -494,7 +492,7 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "dispext1_fe";
-		apple,always-on;//here
+		apple,always-on;
 		power-domains = <&ps_dispext1_sys>;
 	};
 
@@ -578,6 +576,7 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "apcie_st";
+		apple,always-on;
 		power-domains = <&ps_ans>;
 	};
 
@@ -797,6 +796,7 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "apcie_sys_st";
+		apple,always-on;
 		power-domains = <&ps_ans>, <&ps_apcie_st>;
 	};
 
@@ -833,6 +833,7 @@
 		#power-domain-cells = <0>;
 		#reset-cells = <0>;
 		label = "st0_aus5";
+		apple,always-on;
 		power-domains = <&ps_st0_aus5_aon>;
 	};
 
