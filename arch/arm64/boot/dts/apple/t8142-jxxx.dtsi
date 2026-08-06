@@ -25,7 +25,7 @@
 			compatible = "apple,simple-framebuffer", "simple-framebuffer";
 			reg = <0 0 0 0>; /* To be filled by loader */  
 			/* Format properties will be added by loader */
-			// power-domains = <&ps_disp_sys>, <&ps_dptx_phy>, <&ps_dispext1_fe>;
+			power-domains = <&ps_disp_sys>, <&ps_dptx_phy>;
 			status = "disabled";
 		};
 	};
