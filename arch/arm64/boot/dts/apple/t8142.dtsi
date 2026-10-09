@@ -72,7 +72,7 @@
 			device_type = "cpu";
 			reg = <0x0 0x0>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0 0>; 
+			cpu-release-addr = <0 0>;
 			i-cache-size = <0x20000>;
 			d-cache-size = <0x10000>;
 			next-level-cache = <&l2_cache_0>;
@@ -94,7 +94,7 @@
 			device_type = "cpu";
 			reg = <0x0 0x2>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0 0>; 
+			cpu-release-addr = <0 0>;
 			i-cache-size = <0x20000>;
 			d-cache-size = <0x10000>;
 			next-level-cache = <&l2_cache_0>;
@@ -116,7 +116,7 @@
 			device_type = "cpu";
 			reg = <0x0 0x4>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0 0>; 
+			cpu-release-addr = <0 0>;
 			i-cache-size = <0x20000>;
 			d-cache-size = <0x10000>;
 			next-level-cache = <&l2_cache_0>;
@@ -127,7 +127,7 @@
 			device_type = "cpu";
 			reg = <0x0 0x5>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0 0>; 
+			cpu-release-addr = <0 0>;
 			i-cache-size = <0x20000>;
 			d-cache-size = <0x10000>;
 			next-level-cache = <&l2_cache_0>;
@@ -149,7 +149,7 @@
 			device_type = "cpu";
 			reg = <0x0 0x10101>;
 			enable-method = "spin-table";
-			cpu-release-addr = <0 0>; 
+			cpu-release-addr = <0 0>;
 			i-cache-size = <0x40000>;
 			d-cache-size = <0x20000>;
 			next-level-cache = <&l2_cache_1>;
@@ -224,7 +224,7 @@
 			};
 		};
 
-        fpwm0: pwm@3a5040000 {
+        	fpwm0: pwm@3a5040000 {
 			compatible = "apple,t8142-fpwm", "apple,s5l-fpwm";
 			reg = <0x3 0xa5040000 0x0 0x4000>;
 			power-domains = <&ps_fpwm0>;
@@ -302,18 +302,6 @@
 			power-domains = <&ps_i2c4>;
 			status = "disabled";
 		};
-    
-		serial0: serial@3a5200000 {
-			compatible = "apple,s5l-uart";
-			reg = <0x3 0xa5200000 0x0 0x1000>;
-			reg-io-width = <4>;
-			interrupt-parent = <&aic>;
-			interrupts = <AIC_IRQ 1231 IRQ_TYPE_LEVEL_HIGH>;
-			clocks = <&clkref>, <&clkref>;
-			clock-names = "uart", "clk_uart_baud0";
-			power-domains = <&ps_uart0>;
-			status = "disabled";
-		};
 
 		pinctrl_ap: pinctrl@39a000000 {
 			compatible = "apple,t8142-pinctrl", "apple,t8103-pinctrl";
@@ -363,7 +351,8 @@
 		};
 
 		pinctrl_aop: pinctrl@390824000 {
-		compatible = "apple,t8142-pinctrl", "apple,t8103-pinctrl";
+
+			compatible = "apple,t8142-pinctrl", "apple,t8103-pinctrl";
 			reg = <0x3 0x90824000 0x0 0x4000>;
 
 			gpio-controller;
@@ -427,29 +416,39 @@
 		};
 
 
-        pmgr: power-management@380700000 {
-            compatible = "apple,t8142-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-            reg = <0x3 0x80700000 0 0x14000>;
-            #address-cells = <1>;
-            #size-cells = <1>;
-        };
+		pmgr: power-management@380700000 {
+			compatible = "apple,t8142-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
+			reg = <0x3 0x80700000 0 0x14000>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+		};
 
-        pmgr_mini: power-management@388280000 {
-            compatible = "apple,t8142-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-            reg = <0x3 0x88280000 0 0x4000>;
-            #address-cells = <1>;
-            #size-cells = <1>;
-        };
+		pmgr_mini: power-management@388280000 {
+			compatible = "apple,t8142-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
+			reg = <0x3 0x88280000 0 0x4000>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+		};
 
-        pmgr_gfx: power-management@580e80000 {
-            compatible = "apple,t8142-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
-            reg = <0x5 0x80e80000 0 0x4000>;
-            #address-cells = <1>;
-            #size-cells = <1>;
-        };
+		pmgr_gfx: power-management@580e80000 {
+			compatible = "apple,t8142-pmgr", "apple,t8103-pmgr", "syscon", "simple-mfd";
+			reg = <0x5 0x80e80000 0 0x4000>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+		};
 
-		
-		
+		serial0: serial@3a5200000 {
+			compatible = "apple,s5l-uart";
+			reg = <0x3 0xa5200000 0x0 0x1000>;
+			reg-io-width = <4>;
+			interrupt-parent = <&aic>;
+			interrupts = <AIC_IRQ 1231 IRQ_TYPE_LEVEL_HIGH>;
+			clocks = <&clkref>, <&clkref>;
+			clock-names = "uart", "clk_uart_baud0";
+			power-domains = <&ps_uart0>;
+			status = "disabled";
+		};
+
 		wdt: watchdog@3882b0000 {
 			compatible = "apple,t8142-wdt", "apple,t8103-wdt";
 			reg = <0x3 0x882b0000 0x0 0x4000>;
