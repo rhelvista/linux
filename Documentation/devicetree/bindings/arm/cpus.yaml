@@ -88,6 +88,8 @@ properties:
           - apple,cyclone
           - apple,donan-e
           - apple,donan-p
+          - apple,hidra-e
+          - apple,hidra-p
           - apple,everest
           - apple,firestorm
           - apple,hurricane-zephyr
